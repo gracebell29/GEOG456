@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>scatter</title>
+</head>
+<style>
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<body>
+  
+</body>
+<script>
+
+const fileURL = "https://raw.githubusercontent.com/gracebell29/GEOG456/main/antarctica_ice_mass.csv"
+let myResult
+Papa.parse(fileURL, {
+  download: true,
+  header: true,
+  complete: function(result) {
+    // console.log(result.data)
+    myResult = result.data
+  }
+})
+</script>
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.14.0/plotly.min.js" integrity="sha512-XDnqTWsAcVl16AYJoBHumISzIYThowGjR67jeL53NSp6tajsq2qf5UeAWvk1n6Hp3M2iMsV/ewhPScBiLCDs9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://raw.githubusercontent.com/gracebell29/GEOG456/main/antarctica_ice_mass.csv"></script>
+<body>
+  <div id="myDiv">
+  
+
+</div>
+
+<script>var y = year.map(e=> e.YEAR)
+var x = IceMass.map(e=>e.IceMass)
+</script>
+<script>
+var trace1 = {
+x: x,
+y: y,
+mode: 'markers',
+type: 'bar',
+marker:{
+  color:y, colorscale:'Portland'
+}
+};
+
+var layout={
+  title:{
+    text: 'Antarctic Ice Mass'
+  },
+  xaxis: {
+    title: {
+      text: 'YEAR'
+    }
+  },
+  yaxis: {
+    title: {
+      text: 'MASS'
+    }
+  }
+}
+
+
+
+var data = [trace1];
+
+Plotly.newPlot('myDiv', data, layout);
+
+</script>
+</body>
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.14.0/plotly.min.js" integrity="sha512-XDnqTWsAcVl16AYJoBHumISzIYThowGjR67jeL53NSp6tajsq2qf5UeAWvk1n6Hp3M2iMsV/ewhPScBiLCDs9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://gisunc.github.io/GEOG456FALL2022Data/TMAX/tmax.js"></script>
+<body>
+  <div id="myDiv">
+
+</div>
+<script>var y = chTmax.map(e=> Number(e.TMAX))
+var x = chTmax.map(e=>e.DATE)
+</script>
+<script>
+var trace1 = {
+x: x,
+y: y,
+mode: 'markers',
+type: 'bar',
+marker:{
+  color:y, colorscale:'Portland'
+}
+};
+
+var layout={
+  title:{
+    text: ''
+  },
+  xaxis: {
+    title: {
+      text: 'date'
+    }
+  },
+  yaxis: {
+    title: {
+      text: 'MASS'
+    }
+  }
+}
+
+// var trace2 = {
+//   x: [2, 3, 4, 5],
+//   y: [16, 5, 11, 9],
+//   mode: 'lines',
+//   type: 'bar'
+// };
+
+// var trace3 = {
+//   x: [1, 2, 3, 4],
+//   y: [12, 9, 15, 12],
+//   mode: 'lines+markers',
+//   type: 'bar'
+// };
+
+var data = [trace1];
+
+Plotly.newPlot('myDiv', data, layout);
+
+</script>
+</body>
+</html>
+</html>
+</html>
