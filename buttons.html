@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><Button></Button></title>
+</head>
+
+   
+<style>
+    img{
+        position: absolute; 
+        height: 600px; 
+    }
+    button{
+        position: absolute;
+        top:650px
+    }
+</style>
+<body>
+  
+    <img id="WS2005" src = "./2005ws.png">
+    <img id="WS2012" src = "./2012ws.png">
+    <img id="WS2020" src = "./2020ws.png">
+    <button style = "left:10px" onclick="myFunction('WS2005')">WS2005</button>
+    <button style = "left: 100px" onclick="myFunction('WS2012')">WS2012</button>
+    <button style = "left: 200px" onclick="myFunction('WS2020')">WS2020</button>
+</body>
+
+<script>
+    
+    function myFunction(id){
+        var imgs = document.getElementsByTagName('img')
+        for (var i = 0; i< imgs.length; i++){
+        imgs[i].style.visibility = 'hidden'
+        }
+        var theImage = document.getElementById(id)
+        theImage.style.visibility = 'visible'
+
+    }
+</script>
+</html>
