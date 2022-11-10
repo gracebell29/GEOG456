@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><Button></Button></title>
+</head>
+
+   
+<style>
+    img{
+        position: absolute; 
+        height: 600px; 
+    }
+    button{
+        position: absolute;
+        top:650px
+    }
+</style>
+<body>
+  
+    <img id="2003" src = "./2003.png">
+    <button style = "left:10px" onclick="myFunction('2003')">2003</button>
+    <img id="2004" src = "./2004_1.png">
+    <button style = "left: 60px" onclick="myFunction('2004')">2004</button>
+    <img id="2005" src = "./2005.png">
+    <button style = "left: 100px" onclick="myFunction('2005')">2005</button>
+    <img id="2006" src = "./2006.png">
+    <button style = "left: 1500px" onclick="myFunction('2006')">2006</button>
+    <img id="2007" src = "./2007.png">
+    <button style = "left: 400px" onclick="myFunction('2007')">2007</button>
+    <img id="2008" src = "./2008.png">
+    <button style = "left: 500px" onclick="myFunction('2008')">2008</button>
+    <img id="2009" src = "./2009.png">
+    <button style = "left: 600px" onclick="myFunction('2009')">2009</button>
+    <img id="2010" src = "./2010.png">
+    <button style = "left: 700px" onclick="myFunction('2010')">2010</button>
+    <img id="2011" src = "./2011.png">
+    <button style = "left: 800px" onclick="myFunction('2011')">2011</button>
+    <img id="2012" src = "./2012.png">
+    <button style = "left: 900px" onclick="myFunction('2012')">2012</button>
+    <img id="2013" src = "./2013.png">
+    <button style = "left: 1000px" onclick="myFunction('2013')">2013</button>
+    <img id="2013" src = "./2013.png">
+    <button style = "left: 1000px" onclick="myFunction('2013')">2013</button>
+    <img id="2014" src = "./2014.png">
+    <button style = "left: 1100px" onclick="myFunction('2014')">2014</button>
+    <img id="2015" src = "./2015.png">
+    <button style = "left: 1200px" onclick="myFunction('2015')">2015</button>
+    <img id="2016" src = "./2016.png">
+    <button style = "left: 1300px" onclick="myFunction('2016')">2016</button>
+    <img id="2017" src = "./2017.png">
+    <button style = "left: 1400px" onclick="myFunction('2017')">2017</button>
+    <img id="2018" src = "./2018.png">
+    <button style = "left: 1500px" onclick="myFunction('2018')">2018</button>
+    <img id="2019" src = "./2019.png">
+    <button style = "left: 1600px" onclick="myFunction('2019')">2019</button>
+    <img id="2020" src = "./2020.png">
+    <button style = "left: 1700px" onclick="myFunction('2020')">2020</button>
+    
+   
+</body>
+
+<script>
+    
+    function myFunction(id){
+        var imgs = document.getElementsByTagName('img')
+        for (var i = 0; i< imgs.length; i++){
+        imgs[i].style.visibility = 'hidden'
+        }
+        var theImage = document.getElementById(id)
+        theImage.style.visibility = 'visible'
+
+    }
+</script>
+</html>
