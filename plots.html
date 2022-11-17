@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #myDiv {
+         background-color: aliceblue;
+         width: 800px;
+         height: 800px;
+        }
+       </style>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.14.0/plotly.min.js" integrity="sha512-XDnqTWsAcVl16AYJoBHumISzIYThowGjR67jeL53NSp6tajsq2qf5UeAWvk1n6Hp3M2iMsV/ewhPScBiLCDs9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+       <script src="iceresults.js"></script>
+       <script src="sealevel.js"></script>
+       <body>
+         <div id="myDiv">
+         
+       
+       </div>
+       
+       <script>
+       var x = myResult.map(e=> Number(e.YEAR))
+       var y = myResult.map(e=> e.IceMass)
+       var trace1 = {
+       x: x,
+       y: y,
+       mode: 'line',
+       type: 'line',
+       marker:{
+         color:y, colorscale:'Portland'
+       }
+       };
+       
+       var layout={
+         title:{
+           text: 'Antarctic Ice Mass'
+         },
+         xaxis: {
+           title: {
+             text: 'YEAR'
+           },
+           range: [2000, 2025]
+         },
+         yaxis: {
+           title: {
+             text: 'MASS'
+           }
+         }
+       }
+       
+       
+       
+       var data = [trace1];
+       
+       Plotly.newPlot('myDiv', data, layout);
+       </script>
+       </body>
+
+       <style>
+        #myDiv {
+         background-color: aliceblue;
+         width: 800px;
+         height: 800px;
+        }
+       </style>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.14.0/plotly.min.js" integrity="sha512-XDnqTWsAcVl16AYJoBHumISzIYThowGjR67jeL53NSp6tajsq2qf5UeAWvk1n6Hp3M2iMsV/ewhPScBiLCDs9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+       <script src="iceresults.js"></script>
+       <body>
+         <div id="myDiv">
+         
+       
+       </div>
+       
+       <script>
+       var x = myResult.map(e=> Number(e.YEAR))
+       var y = myResult.map(e=> e.IceMass)
+       var trace1 = {
+       x: x,
+       y: y,
+       mode: 'markers',
+       type: 'scatter',
+       marker:{
+        
+       }
+       };
+       
+       var layout={
+         title:{
+           text: 'Antarctic Ice Mass Loss'
+         },
+         xaxis: {
+           title: {
+             text: 'YEAR'
+           },
+           range: [2000, 2025]
+         },
+         yaxis: {
+           title: {
+             text: 'MASS'
+           }
+         }
+       }
+       
+       
+       
+       var data = [trace1];
+       
+       Plotly.newPlot('myDiv', data, layout);
+       </script>
+       </body>
+</body>
+</html>
