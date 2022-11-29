@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AntSlider</title>
+</head>
+<style>
+    img{
+        position: absolute; 
+        height: 600px; 
+    }
+    button{
+        position: absolute;
+        top:775px
+    }
+</style>
+<h1>Ice Velocities Throughout the Years</h1>
+<p>Drag the slider to see the changing ice velocities in Anatacrtica, or click each button to see the year by year! Blue areas mean that there is a larger amount of ice present while red areas mean there is some form of ice loss.</p>
+
+<body>
+    <input type="range" min="2003" max="2020" value="2003" oninput="myFunction(this.value)">
+    <br>
+    <img id="2003" src = "./geog2003.png" style="visibility: hidden;">
+    <button style = "left: 10px"  onclick="myFunction('2003')">2003</button>
+    <img id="2004" src = "./geog2004.png" style="visibility: hidden;">
+    <button style = "left: 60px" onclick="myFunction('2004')">2004</button>
+    <img id="2005" src = "./geog2005.png" style="visibility: hidden;">
+    <button style = "left: 110px" onclick="myFunction('2005')">2005</button>
+    <img id="2006" src = "./geog2006.png" style="visibility: hidden;">
+    <button style = "left: 160px" onclick="myFunction('2006')">2006</button>
+    <img id="2007" src = "./geog2007.png" style="visibility: hidden;">
+    <button style = "left: 210px" onclick="myFunction('2007')">2007</button>
+    <img id="2008" src = "./geog2008.png" style="visibility: hidden;">
+    <button style = "left: 260px" onclick="myFunction('2008')">2008</button>
+    <img id="2009" src = "./geog2009.png" style="visibility: hidden;">
+    <button style = "left: 310px" onclick="myFunction('2009')">2009</button>
+    <img id="2010" src = "./geog2010.png" style="visibility: hidden;">
+    <button style = "left: 360px" onclick="myFunction('2010')">2010</button>
+    <img id="2011" src = "./geog2011.png" style="visibility: hidden;">
+    <button style = "left: 410px" onclick="myFunction('2011')">2011</button>
+    <img id="2012" src = "./geog2012.png" style="visibility: hidden;">
+    <button style = "left: 460px" onclick="myFunction('2012')">2012</button>
+    <img id="2013" src = "./geog2013.png" style="visibility: hidden;">
+    <button style = "left: 510px" onclick="myFunction('2013')">2013</button>
+    <img id="2014" src = "./geog2014.png" style="visibility: hidden;">
+    <button style = "left: 560px" onclick="myFunction('2014')">2014</button>
+    <img id="2015" src = "./geog2015.png" style="visibility: hidden;">
+    <button style = "left: 610px" onclick="myFunction('2015')">2015</button>
+    <img id="2016" src = "./geog2016.png" style="visibility: hidden;">
+    <button style = "left: 660px" onclick="myFunction('2016')">2016</button>
+    <img id="2017" src = "./geog2017.png" style="visibility: hidden;">
+    <button style = "left: 710px" onclick="myFunction('2017')">2017</button>
+    <img id="2018" src = "./geog2018.png" style="visibility: hidden;">
+    <button style = "left: 760px" onclick="myFunction('2018')">2018</button>
+    <img id="2019" src="./geog2019.png" style="visibility: hidden;">    
+    <button style = "left: 810px" onclick="myFunction('2019')">2019</button>
+    <img id="2020" src = "./geog2020.png">
+    <button style = "left: 860px" onclick="myFunction('2020')">2020</button>
+    
+<script>
+    
+    function myFunction(id){
+        var imgs = document.getElementsByTagName('img')
+        for (var i = 0; i< imgs.length; i++){
+        imgs[i].style.visibility = 'hidden'
+        }
+        var theImage = document.getElementById(id)
+        theImage.style.visibility = 'visible'
+
+    }
+    myFunction('2003')
+</script>   
+</body>
+</html>
