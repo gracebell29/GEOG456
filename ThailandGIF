@@ -1,0 +1,60 @@
+// Assuming you have the gif.js library loaded
+
+// Create an array of image URLs
+const imageUrls = [
+  'image1.jpg',
+  'image2.jpg',
+  'image3.jpg',
+  'image4.jpg',
+  'image5.jpg',
+  'image6.jpg'
+];
+
+// Create a new GIF instance
+const gif = new GIF({
+  workers: 2,
+  quality: 10
+});
+
+// Load each image and add it to the GIF
+const loadImages = (urls, index = 0) => {
+  if (index >= urls.length) {
+    // When all images are loaded, start the GIF creation process
+    gif.render();
+
+    // Export the GIF when rendering is completed
+    gif.on('finished', function(blob) {
+      // Create a download link
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'animation.gif';
+
+      // Trigger the download
+      a.click();
+
+      // Clean up
+      URL.revokeObjectURL(a.href);
+    });
+
+    return;
+  }
+
+  const url = urls[index];
+  const img = new Image();
+
+  img.onload = function () {
+    // Resize the image if needed
+    // img.width = 200;
+    // img.height = 200;
+
+    gif.addFrame(img, { delay: 200 });
+
+    // Load the next image
+    loadImages(urls, index + 1);
+  };
+
+  img.src = url;
+};
+
+// Start loading the images
+loadImages(imageUrls);
