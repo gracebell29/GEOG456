@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GIF Creator</title>
+  <title>GIF Viewer</title>
   <script src="https://cdn.rawgit.com/jnordberg/gif.js/0.2.0/dist/gif.js"></script>
 </head>
 <body>
+  <div id="gifContainer"></div>
   <script>
     // Create an array of image URLs
     const imageUrls = [
@@ -28,18 +29,17 @@
         // When all images are loaded, start the GIF creation process
         gif.render();
 
-        // Export the GIF when rendering is completed
+        // Export the GIF to an <img> element when rendering is completed
         gif.on('finished', function(blob) {
-          // Create a download link
-          const a = document.createElement('a');
-          a.href = URL.createObjectURL(blob);
-          a.download = 'animation.gif';
+          const img = document.createElement('img');
+          img.src = URL.createObjectURL(blob);
 
-          // Trigger the download
-          a.click();
+          // Append the <img> element to the container
+          const container = document.getElementById('gifContainer');
+          container.appendChild(img);
 
           // Clean up
-          URL.revokeObjectURL(a.href);
+          URL.revokeObjectURL(img.src);
         });
 
         return;
