@@ -1,60 +1,65 @@
-// Assuming you have the gif.js library loaded
-
-// Create an array of image URLs
-const imageUrls = [
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GIF Creator</title>
+  <script src="https://cdn.rawgit.com/jnordberg/gif.js/0.2.0/dist/gif.js"></script>
+</head>
+<body>
+  <script>
+    // Create an array of image URLs
+    const imageUrls = [
   '2017_150dpi_Cutout.png',
   '2018_150dpi_Cutout.png',
   '2019_150dpi_Cutout.png',
   '2020_150dpi_Cutout.png',
   '2021_150dpi_Cutout.png',
   '2022_150dpi_Cutout.png'
-];
+    ];
 
-// Create a new GIF instance
-const gif = new GIF({
-  workers: 2,
-  quality: 10
-});
-
-// Load each image and add it to the GIF
-const loadImages = (urls, index = 0) => {
-  if (index >= urls.length) {
-    // When all images are loaded, start the GIF creation process
-    gif.render();
-
-    // Export the GIF when rendering is completed
-    gif.on('finished', function(blob) {
-      // Create a download link
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'animation.gif';
-
-      // Trigger the download
-      a.click();
-
-      // Clean up
-      URL.revokeObjectURL(a.href);
+    // Create a new GIF instance
+    const gif = new GIF({
+      workers: 2,
+      quality: 10
     });
 
-    return;
-  }
+    // Load each image and add it to the GIF
+    const loadImages = (urls, index = 0) => {
+      if (index >= urls.length) {
+        // When all images are loaded, start the GIF creation process
+        gif.render();
 
-  const url = urls[index];
-  const img = new Image();
+        // Export the GIF when rendering is completed
+        gif.on('finished', function(blob) {
+          // Create a download link
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'animation.gif';
 
-  img.onload = function () {
-    // Resize the image if needed
-    // img.width = 200;
-    // img.height = 200;
+          // Trigger the download
+          a.click();
 
-    gif.addFrame(img, { delay: 200 });
+          // Clean up
+          URL.revokeObjectURL(a.href);
+        });
 
-    // Load the next image
-    loadImages(urls, index + 1);
-  };
+        return;
+      }
 
-  img.src = url;
-};
+      const url = urls[index];
+      const img = new Image();
 
-// Start loading the images
-loadImages(imageUrls);
+      img.onload = function () {
+        gif.addFrame(img, { delay: 200 });
+
+        // Load the next image
+        loadImages(urls, index + 1);
+      };
+
+      img.src = url;
+    };
+
+    // Start loading the images
+    loadImages(imageUrls);
+  </script>
+</body>
+</html>
