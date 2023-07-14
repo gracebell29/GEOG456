@@ -2,12 +2,12 @@
 
 // Create an array of image URLs
 const imageUrls = [
-  'image1.jpg',
-  'image2.jpg',
-  'image3.jpg',
-  'image4.jpg',
-  'image5.jpg',
-  'image6.jpg'
+  '2017_150dpi_Cutout.png',
+  '2018_150dpi_Cutout.png',
+  '2019_150dpi_Cutout.png',
+  '2020_150dpi_Cutout.png',
+  '2021_150dpi_Cutout.png',
+  '2022_150dpi_Cutout.png'
 ];
 
 // Create a new GIF instance
